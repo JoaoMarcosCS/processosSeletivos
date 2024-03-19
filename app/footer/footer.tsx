@@ -1,27 +1,25 @@
+import { Button } from "@/components/ui/button"
 import {
-    Menubar,
-    MenubarContent,
-    MenubarItem,
-    MenubarMenu,
-    MenubarSeparator,
-    MenubarShortcut,
-    MenubarTrigger,
-} from "@/components/ui/menubar"
-import {Separator} from "@/components/ui/separator"
-import {Plus, Eye} from 'lucide-react'
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuIndicator,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  NavigationMenuViewport,
+} from "@/components/ui/navigation-menu"
+import { Separator } from "@/components/ui/separator"
+import { Plus, Eye } from 'lucide-react'
 
 
 
 export const Footer = () => {
-    return (
-      <div className="flex justify-center items-center w-full fixed bottom-0 ">
-        <Menubar>
-        <MenubarMenu>
-          <MenubarTrigger><Eye/> Meus processos</MenubarTrigger>
-          <Separator orientation="vertical"/>
-          <MenubarTrigger><Plus /> Adicionar</MenubarTrigger>
-        </MenubarMenu>
-      </Menubar>
-      </div>
-    )
+  return (
+    <div className="w-full justify-center items-center gap-2 border-t border-gray-100	 flex fixed  bottom-0">
+      <Button  size="lg" variant={"outline"}><Eye/>Ver processos</Button>
+      <Separator orientation="vertical"/>
+      <Button  size="lg" variant={"outline"}><Plus/>Adicionar processo</Button>
+    </div>
+  )
 }

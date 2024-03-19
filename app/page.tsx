@@ -3,7 +3,7 @@ import { ProcessosTable } from "./processosTable/processosTable";
 
 export default function Home() {
   return (
-    <main className="flex items-center justify-center flex-col">
+    <main className="flex items-center justify-center flex-col px-6">
       <h1>Meus processos </h1>
     <ProcessosTable/>
     <Footer/>
