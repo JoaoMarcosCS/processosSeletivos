@@ -30,6 +30,7 @@ import {z} from "zod"
 import {zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { PrismaClient } from '@prisma/client';
+import { Separator } from "@/components/ui/separator"
 
 
 const FormSchema = z.object({
@@ -43,10 +44,11 @@ export const Footer = () => {
 
   return (
     <div className="w-full justify-center items-center gap-2 border-t border-gray-100 bg-white pt-2 px-6 flex fixed  bottom-0">
-      <Button className="px-6" variant={"outline"}><Eye/>Ver processos</Button>
+      <button className="flex justify-center items-center flex-col px-1"><Eye/>Ver</button>
+      <Separator orientation="vertical" />
       <Dialog>
       <DialogTrigger asChild>
-      <Button variant={"outline"}><Plus/>Adicionar processo</Button>
+      <button className="flex justify-center items-center flex-col px-1"><Plus/> Adicionar</button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
