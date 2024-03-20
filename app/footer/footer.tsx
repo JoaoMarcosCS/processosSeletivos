@@ -29,11 +29,20 @@ import { Plus, Eye } from 'lucide-react'
 import {z} from "zod"
 import {zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
+import { PrismaClient } from '@prisma/client';
+
+
+const FormSchema = z.object({
+  nome: z.string(),
+  link: z.string(),
+  status: z.enum(['EM_ANDAMENTO', 'AGUARDANDO_RETORNO', 'REPROVADO', 'APROVADO']),
+});
 
 
 export const Footer = () => {
+
   return (
-    <div className="w-full justify-center items-center gap-2 border-t border-gray-100	bg-	 flex fixed  bottom-0">
+    <div className="w-full justify-center items-center gap-2 border-t border-gray-100 px-6 flex fixed  bottom-0">
       <Button  size="lg" className="px-6" variant={"outline"}><Eye/>Ver processos</Button>
       <Dialog>
       <DialogTrigger asChild>
@@ -44,8 +53,6 @@ export const Footer = () => {
           <DialogTitle className=" text-center">Adicionar processo</DialogTitle>
         </DialogHeader>
         <div className="grid gap-4 py-4">
-        
-            
         </div>
         <DialogFooter>
           <Button type="submit">Adicionar</Button>

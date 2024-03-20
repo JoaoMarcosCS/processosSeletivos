@@ -9,6 +9,7 @@ import {
     TableRow,
 } from "@/components/ui/table"
 
+
 const invoices = [
     {
         invoice: "INV001",
@@ -48,7 +49,7 @@ const invoices = [
     },
     {
         invoice: "INV007",
-        paymentStatus: "Unpaidjdeuhdfuebibdbeidbebdiwidbewuibdeiwbdibwedwedwedewdwedwdw",
+        paymentStatus: "Pending",
         totalAmount: "$300.00",
         paymentMethod: "Credit Card",
     },
@@ -58,13 +59,11 @@ const invoices = [
 export const ProcessosTable = () => {
     return (
     <Table>
-        <TableCaption>A list of your recent invoices.</TableCaption>
         <TableHeader>
             <TableRow>
-                <TableHead className="w-[100px]">Invoice</TableHead>
+                <TableHead className="w-[100px]">Nome</TableHead>
                 <TableHead>Status</TableHead>
-                <TableHead>Method</TableHead>
-                <TableHead className="text-right">Amount</TableHead>
+                <TableHead>Link</TableHead>
             </TableRow>
         </TableHeader>
         <TableBody>
@@ -77,12 +76,6 @@ export const ProcessosTable = () => {
                 </TableRow>
             ))}
         </TableBody>
-        <TableFooter>
-            <TableRow>
-                <TableCell colSpan={3}>Total</TableCell>
-                <TableCell className="text-right">$2,500.00</TableCell>
-            </TableRow>
-        </TableFooter>
     </Table>
     )
 }
