@@ -42,7 +42,7 @@ const FormSchema = z.object({
 export const Footer = () => {
 
   return (
-    <div className="w-full justify-center items-center gap-2 border-t border-gray-100 bg-white	 px-6 flex fixed  bottom-0">
+    <div className="w-full justify-center items-center gap-2 border-t border-gray-100 bg-white pt-2 px-6 flex fixed  bottom-0">
       <Button className="px-6" variant={"outline"}><Eye/>Ver processos</Button>
       <Dialog>
       <DialogTrigger asChild>
