@@ -16,7 +16,7 @@ import {
     AccordionItem,
     AccordionTrigger,
 } from "@/components/ui/accordion"
-import { db } from "../utils/db"
+//import { db } from "../utils/db"
 import { useEffect, useState } from "react";
 
 
