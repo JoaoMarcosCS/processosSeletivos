@@ -43,7 +43,7 @@ const FormSchema = z.object({
 export const Footer = () => {
 
   return (
-    <div className="w-full justify-center items-center gap-2 border-t border-gray-100 bg-white pt-2 px-6 flex fixed  bottom-0">
+    <div className="w-full justify-center items-center gap-2 border-t border-t-gray-200  pt-2 px-6 flex fixed  bottom-0">
       <button className="flex justify-center items-center flex-col px-1"><Eye/>Ver</button>
       <Separator orientation="vertical" />
       <Dialog>
