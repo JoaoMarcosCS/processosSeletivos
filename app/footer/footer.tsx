@@ -43,10 +43,10 @@ export const Footer = () => {
 
   return (
     <div className="w-full justify-center items-center gap-2 border-t border-gray-100 px-6 flex fixed  bottom-0">
-      <Button  size="lg" className="px-6" variant={"outline"}><Eye/>Ver processos</Button>
+      <Button className="px-6" variant={"outline"}><Eye/>Ver processos</Button>
       <Dialog>
       <DialogTrigger asChild>
-      <Button  size="lg" variant={"outline"}><Plus/>Adicionar processo</Button>
+      <Button variant={"outline"}><Plus/>Adicionar processo</Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
