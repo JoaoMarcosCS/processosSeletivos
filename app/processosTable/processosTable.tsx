@@ -81,7 +81,7 @@ export const ProcessosTable = () => {
     // }, [vagas])
 
     return (
-        <Accordion type="single" collapsible className=" w-96">
+        <Accordion type="single" collapsible className=" w-4/5">
             <AccordionItem value="item-1">
                 <AccordionTrigger>Processos seletivos</AccordionTrigger>
                 <AccordionContent>
