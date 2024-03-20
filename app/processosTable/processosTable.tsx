@@ -67,18 +67,18 @@ const invoices = [
 
 export const ProcessosTable = () => {
 
-    const [vagas, setVagas] = useState([{}]);
+    // const [vagas, setVagas] = useState([{}]);
 
-    useEffect(() => {
-        async function fetchData() {
-            try {
-                const result = await db.vagas.findMany();
-                setVagas(result);
-            } catch (error) {
-                console.error('Erro ao buscar os dados:', error);
-            }
-        }
-    }, [vagas])
+    // useEffect(() => {
+    //     async function fetchData() {
+    //         try {
+    //             const result = await db.vagas.findMany();
+    //             setVagas(result);
+    //         } catch (error) {
+    //             console.error('Erro ao buscar os dados:', error);
+    //         }
+    //     }
+    // }, [vagas])
 
     return (
         <Accordion type="single" collapsible className=" w-96">
