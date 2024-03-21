@@ -70,7 +70,7 @@ export const ProcessosTable = () => {
     return (
         <Accordion type="single" collapsible className="no-underline w-11/12 border-2 shadow-sm rounded-lg px-4 mt-4">
             <AccordionItem value="item-1">
-                <AccordionTrigger className="flex justify-between "><p>$250.00</p><p>$250.00</p> </AccordionTrigger>
+                <AccordionTrigger className="flex justify-between ">Total: $250.00</AccordionTrigger>
                 <AccordionContent>
                     <Table className=" shadow-2xl border rounded hover:border-collapse">
                         <TableHeader>
