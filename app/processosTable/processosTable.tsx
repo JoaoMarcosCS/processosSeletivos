@@ -68,9 +68,10 @@ const invoices = [
 export const ProcessosTable = () => {
 
     return (
-        <Accordion type="single" collapsible className="no-underline w-11/12 border-2 shadow-sm rounded-lg px-4 mt-4">
+        <div className="w-11/12 flex flex-col mt-5 mb-16">
+        <Accordion type="single" collapsible className="no-underline border-2 shadow-sm rounded-lg px-4 mt-4">
             <AccordionItem value="item-1">
-                <AccordionTrigger className="flex justify-between ">Total: $250.00</AccordionTrigger>
+                <AccordionTrigger className="flex justify-between ">Compras</AccordionTrigger>
                 <AccordionContent>
                     <Table className=" shadow-2xl border rounded hover:border-collapse">
                         <TableHeader>
@@ -96,5 +97,64 @@ export const ProcessosTable = () => {
             </AccordionItem>
 
         </Accordion>
+        <Accordion type="single" collapsible className="no-underline border-2 shadow-sm rounded-lg px-4 mt-4">
+            <AccordionItem value="item-1">
+                <AccordionTrigger className="flex justify-between ">Pagamentos</AccordionTrigger>
+                <AccordionContent>
+                    <Table className=" shadow-2xl border rounded hover:border-collapse">
+                        <TableHeader>
+                            <TableRow>
+                                <TableHead className="w-[100px]">Nome</TableHead>
+                                <TableHead>Status</TableHead>
+                                <TableHead>Link</TableHead>
+                            </TableRow>
+                            {invoices.map((invoice) => (
+                                <TableRow key={invoice.invoice}>
+                                    <TableCell className="font-medium">{invoice.invoice}</TableCell>
+                                    <TableCell>{invoice.paymentStatus}</TableCell>
+                                    <TableCell>{invoice.paymentMethod}</TableCell>
+                                    <TableCell className="text-right">{invoice.totalAmount}</TableCell>
+                                </TableRow>
+                            ))}
+                        </TableHeader>
+                        <TableBody>
+
+                        </TableBody>
+                    </Table>
+                </AccordionContent>
+            </AccordionItem>
+
+        </Accordion>
+        <Accordion type="single" collapsible className="no-underline border-2 shadow-sm rounded-lg px-4 mt-4">
+            <AccordionItem value="item-1">
+                <AccordionTrigger className="flex justify-between ">Recebimentos</AccordionTrigger>
+                <AccordionContent>
+                    <Table className=" shadow-2xl border rounded hover:border-collapse">
+                        <TableHeader>
+                            <TableRow>
+                                <TableHead className="w-[100px]">Nome</TableHead>
+                                <TableHead>Status</TableHead>
+                                <TableHead>Link</TableHead>
+                            </TableRow>
+                            {invoices.map((invoice) => (
+                                <TableRow key={invoice.invoice}>
+                                    <TableCell className="font-medium">{invoice.invoice}</TableCell>
+                                    <TableCell>{invoice.paymentStatus}</TableCell>
+                                    <TableCell>{invoice.paymentMethod}</TableCell>
+                                    <TableCell className="text-right">{invoice.totalAmount}</TableCell>
+                                </TableRow>
+                            ))}
+                        </TableHeader>
+                        <TableBody>
+
+                        </TableBody>
+                    </Table>
+                </AccordionContent>
+            </AccordionItem>
+
+        </Accordion>
+        </div>
+
+        
     )
 }

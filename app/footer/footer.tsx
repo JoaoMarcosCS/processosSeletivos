@@ -26,24 +26,14 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog"
 import { Plus, Eye } from 'lucide-react'
-import {z} from "zod"
-import {zodResolver } from "@hookform/resolvers/zod"
-import { useForm } from "react-hook-form"
-import { PrismaClient } from '@prisma/client';
+
 import { Separator } from "@/components/ui/separator"
-
-
-const FormSchema = z.object({
-  nome: z.string(),
-  link: z.string(),
-  status: z.enum(['EM_ANDAMENTO', 'AGUARDANDO_RETORNO', 'REPROVADO', 'APROVADO']),
-});
 
 
 export const Footer = () => {
 
   return (
-    <div className="w-full justify-around rounded-2xl items-center  shadow-inner py-2 px-6 flex fixed  bottom-0">
+    <div className="w-full justify-around rounded-s-full mx-10 items-center  shadow-inner py-2 px-6 flex fixed  bottom-0 bg-gray-100">
       <button className="flex justify-center items-center font-medium flex-col px-1 transition text-xs hover:scale-105 hover:text-green-500	 focus:text-green-500"><Eye/>Ver</button>
       <Separator orientation="vertical" />
       <Dialog>
