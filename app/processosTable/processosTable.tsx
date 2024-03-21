@@ -67,25 +67,12 @@ const invoices = [
 
 export const ProcessosTable = () => {
 
-    // const [vagas, setVagas] = useState([{}]);
-
-    // useEffect(() => {
-    //     async function fetchData() {
-    //         try {
-    //             const result = await db.vagas.findMany();
-    //             setVagas(result);
-    //         } catch (error) {
-    //             console.error('Erro ao buscar os dados:', error);
-    //         }
-    //     }
-    // }, [vagas])
-
     return (
-        <Accordion type="single" collapsible className=" w-11/12">
+        <Accordion type="single" collapsible className=" w-11/12 border-2 shadow-sm rounded-lg px-4 mt-4">
             <AccordionItem value="item-1">
                 <AccordionTrigger>Processos seletivos</AccordionTrigger>
                 <AccordionContent>
-                    <Table>
+                    <Table className=" shadow-2xl border rounded">
                         <TableHeader>
                             <TableRow>
                                 <TableHead className="w-[100px]">Nome</TableHead>
