@@ -43,12 +43,12 @@ const FormSchema = z.object({
 export const Footer = () => {
 
   return (
-    <div className="w-full justify-around items-center border-2 border-gray-200 pt-2 px-6 flex fixed  bottom-0">
-      <button className="flex justify-center items-center flex-col px-1"><Eye/>Ver</button>
+    <div className="w-full justify-around items-center  shadow-inner pt-2 px-6 flex fixed  bottom-0">
+      <button className="flex justify-center items-center flex-col px-1"><Eye/></button>
       <Separator orientation="vertical" />
       <Dialog>
       <DialogTrigger asChild>
-      <button className="flex justify-center items-center flex-col px-1"><Plus/> Adicionar</button>
+      <button className="flex justify-center items-center flex-col px-1 text"><Plus/> </button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
