@@ -72,7 +72,7 @@ export const ProcessosTable = () => {
             <AccordionItem value="item-1">
                 <AccordionTrigger>Processos seletivos</AccordionTrigger>
                 <AccordionContent>
-                    <Table className=" shadow-2xl border rounded">
+                    <Table className=" shadow-2xl border rounded hover:border-collapse">
                         <TableHeader>
                             <TableRow>
                                 <TableHead className="w-[100px]">Nome</TableHead>
