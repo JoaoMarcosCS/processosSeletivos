@@ -1,3 +1,5 @@
+'use client'
+
 import { Button } from "@/components/ui/button"
 import {
   Form,
@@ -18,6 +20,7 @@ import {
 } from "@/components/ui/select"
 import {
   Dialog,
+  DialogClose,
   DialogContent,
   DialogDescription,
   DialogFooter,
@@ -28,9 +31,26 @@ import {
 import { Plus, Eye } from 'lucide-react'
 
 import { Separator } from "@/components/ui/separator"
+import { useState } from "react"
+import { vaga } from "../interfaces/vaga"
+import { PrismaClient } from "@prisma/client"
+import { revalidatePath } from "next/cache"
+import createVaga from "../setVagas/createVaga"
 
+const db = new PrismaClient();
 
 export const Footer = () => {
+
+  const [nome, setNome] = useState("")
+  const [link, setLink] = useState("")
+
+  const handleSubmit = async () => {
+    try{
+      await createVaga(link,nome);
+    }catch(error){
+      console.log(error);
+    }
+  }
 
   return (
     <div className="w-full justify-around mx-10 items-center border-2 border-slate-200	 py-2 px-6 flex fixed  bottom-0 bg-gray-100">
@@ -42,12 +62,19 @@ export const Footer = () => {
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
-          <DialogTitle className=" text-center">Adicionar processo</DialogTitle>
+         
+          <DialogTitle className=" text-center" >Adicionar processo</DialogTitle>
         </DialogHeader>
         <div className="grid gap-4 py-4">
+          <label htmlFor="nome">Nome do processo:</label>
+        <input type="text" name="nome" placeholder="Bradesco, BTG..." onChange={(e)=>{setNome(e.target.value)}} />
+        <label htmlFor="link">Cole a url do processo: </label>
+        <input type="text" name="link" placeholder="http:\\bradesco.estagio/candidaturas" onChange={(e)=>{setLink(e.target.value)}} id="" />
         </div>
         <DialogFooter>
-          <Button type="submit">Adicionar</Button>
+          <DialogClose  asChild>
+          <Button type="submit" onSubmit={handleSubmit}>Adicionar</Button>
+          </DialogClose>
         </DialogFooter>
       </DialogContent>
     </Dialog>
