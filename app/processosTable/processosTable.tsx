@@ -1,4 +1,3 @@
-'use client'
 
 import {
     Table,
@@ -16,132 +15,33 @@ import {
     AccordionItem,
     AccordionTrigger,
 } from "@/components/ui/accordion"
-//import { db } from "../utils/db"
+import fetchVagas from "../getVagas/getVagas";
 import { useEffect, useState } from "react";
+import { vagas } from "../interfaces/vaga";
+import { PrismaClient } from "@prisma/client";
 
+const db = new PrismaClient()
 
-const invoices = [
-    {
-        invoice: "INV001",
-        paymentStatus: "Paid",
-        totalAmount: "$250.00",
-        paymentMethod: "Credit Card",
-    },
-    {
-        invoice: "INV002",
-        paymentStatus: "Pending",
-        totalAmount: "$150.00",
-        paymentMethod: "PayPal",
-    },
-    {
-        invoice: "INV003",
-        paymentStatus: "Unpaid",
-        totalAmount: "$350.00",
-        paymentMethod: "Bank Transfer",
-    },
-    {
-        invoice: "INV004",
-        paymentStatus: "Paid",
-        totalAmount: "$450.00",
-        paymentMethod: "Credit Card",
-    },
-    {
-        invoice: "INV005",
-        paymentStatus: "Paid",
-        totalAmount: "$550.00",
-        paymentMethod: "PayPal",
-    },
-    {
-        invoice: "INV006",
-        paymentStatus: "Pending",
-        totalAmount: "$200.00",
-        paymentMethod: "Bank Transfer",
-    },
-    {
-        invoice: "INV007",
-        paymentStatus: "Unpaid",
-        totalAmount: "$300.00",
-        paymentMethod: "Credit Card",
-    },
-]
-
-export const ProcessosTable = () => {
-
+export const ProcessosTable = async () => {
+    const vagas = await db.vagas.findMany();
     return (
         <div className="w-11/12 flex flex-col mt-5 mb-16">
         <Accordion type="single" collapsible className="no-underline border-2 shadow-sm rounded-lg px-4 mt-4">
             <AccordionItem value="item-1">
-                <AccordionTrigger className="flex justify-between ">Compras</AccordionTrigger>
+                <AccordionTrigger className="flex justify-between ">Processos</AccordionTrigger>
                 <AccordionContent>
                     <Table className=" shadow-2xl border rounded hover:border-collapse">
                         <TableHeader>
                             <TableRow>
                                 <TableHead className="w-[100px]">Nome</TableHead>
-                                <TableHead>Status</TableHead>
                                 <TableHead>Link</TableHead>
-                            </TableRow>
-                            {invoices.map((invoice) => (
-                                <TableRow key={invoice.invoice}>
-                                    <TableCell className="font-medium">{invoice.invoice}</TableCell>
-                                    <TableCell>{invoice.paymentStatus}</TableCell>
-                                    <TableCell>{invoice.paymentMethod}</TableCell>
-                                    <TableCell className="text-right">{invoice.totalAmount}</TableCell>
-                                </TableRow>
-                            ))}
-                        </TableHeader>
-                        <TableBody>
-
-                        </TableBody>
-                    </Table>
-                </AccordionContent>
-            </AccordionItem>
-
-        </Accordion>
-        <Accordion type="single" collapsible className="no-underline border-2 shadow-sm rounded-lg px-4 mt-4">
-            <AccordionItem value="item-1">
-                <AccordionTrigger className="flex justify-between ">Pagamentos</AccordionTrigger>
-                <AccordionContent>
-                    <Table className=" shadow-2xl border rounded hover:border-collapse">
-                        <TableHeader>
-                            <TableRow>
-                                <TableHead className="w-[100px]">Nome</TableHead>
                                 <TableHead>Status</TableHead>
-                                <TableHead>Link</TableHead>
                             </TableRow>
-                            {invoices.map((invoice) => (
-                                <TableRow key={invoice.invoice}>
-                                    <TableCell className="font-medium">{invoice.invoice}</TableCell>
-                                    <TableCell>{invoice.paymentStatus}</TableCell>
-                                    <TableCell>{invoice.paymentMethod}</TableCell>
-                                    <TableCell className="text-right">{invoice.totalAmount}</TableCell>
-                                </TableRow>
-                            ))}
-                        </TableHeader>
-                        <TableBody>
-
-                        </TableBody>
-                    </Table>
-                </AccordionContent>
-            </AccordionItem>
-
-        </Accordion>
-        <Accordion type="single" collapsible className="no-underline border-2 shadow-sm rounded-lg px-4 mt-4">
-            <AccordionItem value="item-1">
-                <AccordionTrigger className="flex justify-between ">Recebimentos</AccordionTrigger>
-                <AccordionContent>
-                    <Table className=" shadow-2xl border rounded hover:border-collapse">
-                        <TableHeader>
-                            <TableRow>
-                                <TableHead className="w-[100px]">Nome</TableHead>
-                                <TableHead>Status</TableHead>
-                                <TableHead>Link</TableHead>
-                            </TableRow>
-                            {invoices.map((invoice) => (
-                                <TableRow key={invoice.invoice}>
-                                    <TableCell className="font-medium">{invoice.invoice}</TableCell>
-                                    <TableCell>{invoice.paymentStatus}</TableCell>
-                                    <TableCell>{invoice.paymentMethod}</TableCell>
-                                    <TableCell className="text-right">{invoice.totalAmount}</TableCell>
+                            {vagas.map((vaga) => (
+                                <TableRow key={vaga.id}>
+                                    <TableCell className="font-medium">{vaga.nome}</TableCell>
+                                    <TableCell><a href={vaga.link} target="_blank" className="text-cyan-600">Ver</a></TableCell>
+                                    <TableCell>{vaga.status}</TableCell>
                                 </TableRow>
                             ))}
                         </TableHeader>
