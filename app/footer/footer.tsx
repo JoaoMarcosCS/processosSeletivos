@@ -73,7 +73,7 @@ export const Footer = () => {
         </div>
         <DialogFooter>
           <DialogClose  asChild>
-          <Button type="submit" onSubmit={handleSubmit}>Adicionar</Button>
+          <Button type="submit" onClick={handleSubmit}>Adicionar</Button>
           </DialogClose>
         </DialogFooter>
       </DialogContent>
