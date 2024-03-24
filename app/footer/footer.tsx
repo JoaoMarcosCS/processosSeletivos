@@ -47,6 +47,7 @@ export const Footer = () => {
   const handleSubmit = async () => {
     try{
       await createVaga(link,nome);
+      console.log("Vaga cadastrada")
     }catch(error){
       console.log(error);
     }
